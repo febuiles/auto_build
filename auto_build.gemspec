@@ -7,11 +7,11 @@ require "auto_build/version"
 Gem::Specification.new do |s|
   s.name        = "auto_build"
   s.version     = AutoBuild::VERSION
-  s.authors     = ["TODO: Your name"]
-  s.email       = ["TODO: Your email"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of AutoBuild."
-  s.description = "TODO: Description of AutoBuild."
+  s.authors     = ["Federico Builes"]
+  s.email       = ["federico.builes@gmail.com"]
+  s.homepage    = "https://github.com/febuiles/auto_build"
+  s.summary     = "Automatically initialize associations in Rails models"
+  s.description = "Automatically initialize associations in Rails models"
 
   s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.md"]
   s.test_files = Dir["test/**/*"]

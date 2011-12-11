@@ -36,10 +36,6 @@ How
 `auto_build` works by adding an `after_initialize` hook to your model that build the association if
 its current value is nil. It **will not** override existing values.
 
-If you want to skip the auto building in a specific case just clear the callback:
-
-    User.after_initialize.clear
-
 Etc.
 ----
 Bugs, feature suggestions, etc. go to the [Issues](https://github.com/febuiles/auto_build/issues)

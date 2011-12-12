@@ -21,4 +21,9 @@ class AutoBuildTest < ActiveSupport::TestCase
     found_user = User.last
     assert_equal found_user.address, @address
   end
+
+  test "multiple arguments" do
+    assert @user.address
+    assert @user.picture
+  end
 end

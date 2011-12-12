@@ -25,7 +25,7 @@ module AutoBuild
       #       auto_build :address, :phone
       #     end
       #
-      def auto_build(associations)
+      def auto_build(*associations)
         associations = [associations] unless associations.kind_of?(Array)
 
         associations.each do |assoc|

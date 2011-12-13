@@ -20,7 +20,7 @@ And run `bundle install`.
 Usage
 ----
 
-### `has_one` associations
+### has_one associations
 
 Just call the `auto_build` method in your models:
 
@@ -40,7 +40,7 @@ You can also do:
 
 To initialize several fields. One `after_initialize` callback will be created per association.
 
-### `has_many` associations
+### has_many associations
 
 You can automatically initialize a `has_many` association in the same way you initialized a `has_one`
 association:
@@ -88,7 +88,7 @@ existing values.
 Notes
 ----
 * The option `:append => true` is equivalent to `:count => 5`.
-* You **cannot* pass the `:append` and `:count` options to the same association.
+* You **cannot** pass the `:append` and `:count` options to the same association.
 * None of the operations will overwrite existing objects.
 
 

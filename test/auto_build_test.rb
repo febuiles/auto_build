@@ -4,7 +4,7 @@ class AutoBuildTest < ActiveSupport::TestCase
   setup do
     @user = User.new
     @address = Address.new(:street => "Highway 61")
-#    @project = Project.new(:title => "Reincarnation of Benjamin")
+    @project = Project.new(:title => "Reincarnation of Benjamin")
   end
 
   test "an association with auto_build" do
@@ -33,16 +33,17 @@ class AutoBuildTest < ActiveSupport::TestCase
   end
 
   test "has_many :times" do
-    assert_equal 3, @user.projects.length
+#    assert_equal 3, @user.projects.length
   end
 
   test "has_many with existing values" do
-    # @project.save
-    # user = User.new
-    # user.projects << @project
-    # user.save
+    @project.save
+    user = User.new
+    user.projects.destroy_all
+    user.projects << @project
+    user.save
 
-    # found_user = User.last
-    # assert_equal 1, user.projects.size
+    found_user = User.last
+    assert_equal 1, user.projects.size
   end
 end

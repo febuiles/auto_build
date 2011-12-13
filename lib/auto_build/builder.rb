@@ -37,7 +37,8 @@ module AutoBuild
 
       def add_callback(name, options)
         code = code_for_association(name)
-        num = options[:times] || 1
+#        times = options[:times] || 1
+        num = 1
 
         after_initialize do |record|
           num.times { record.instance_eval(code) }
@@ -47,14 +48,22 @@ module AutoBuild
       def code_for_association(name)
         type = association_type(name)
         if type == :has_one
-          "self.#{name} ||= build_#{name}"
+          has_one_code(name)
         else
-          "self.#{name}.build"
+          has_many_code(name)
         end
       end
 
       def association_type(name)
         self.reflect_on_association(name).macro
+      end
+
+      def has_one_code(name)
+        "self.#{name} ||= build_#{name}"
+      end
+
+      def has_many_code(name)
+        "self.#{name}.build unless #{name}.any?"
       end
     end
   end

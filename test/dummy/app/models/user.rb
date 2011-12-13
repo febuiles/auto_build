@@ -5,5 +5,5 @@ class User < ActiveRecord::Base
   has_many :projects
 
   auto_build :address, :picture
-  auto_build :projects, :times => 3
+  auto_build :projects#, :times => 3
 end

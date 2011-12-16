@@ -1,7 +1,7 @@
 AutoBuild
 =========
 
-Automatically initialize associations in your Rails models.
+Automatically initialize associations in your Rails 3 models.
 
 What
 ----

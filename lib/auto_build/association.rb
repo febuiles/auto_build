@@ -58,36 +58,13 @@ module AutoBuild
     # It will choose the correct hook based on the value of `type`.
     def add_hook
       if type == :has_one
-        has_one_hook
+        HasOneHook.new(model, association_name).attach
       else
-        has_many_hook
+        HasManyHook.new(model, association_name, options).attach
       end
     end
 
     private
-
-    def has_one_hook
-      code = "self.#{association_name} ||= build_#{association_name}"
-
-      model.class_eval do
-        after_initialize do |record|
-          record.instance_eval(code)
-        end
-      end
-    end
-
-    def has_many_hook
-      name = association_name
-      record_options = options
-      code = "self.#{association_name}.build;"
-
-      model.class_eval do
-        after_initialize do |record|
-          count = number_of_records_to_create(name, record_options)
-          record.instance_eval(code * count)
-        end
-      end
-    end
 
     def validate_options
       if options[:count] && options[:append]

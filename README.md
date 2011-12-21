@@ -87,6 +87,8 @@ existing values.
 
 Notes
 ----
+* **Watch out for fields with `reject_if`**. Since the AutoBuild callback will be added as an
+  `after_initialize` hook this might overwrite the validations done in `reject_if`.
 * The option `:append => true` is equivalent to `:count => 5`.
 * You **cannot** pass the `:append` and `:count` options to the same association.
 * None of the operations will overwrite existing objects.

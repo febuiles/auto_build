@@ -47,4 +47,8 @@ class AutoBuildTest < ActiveSupport::TestCase
       end
     end
   end
+
+  test "has_one doesn't save the association, only builds it" do
+    assert !@user.address.persisted?
+  end
 end

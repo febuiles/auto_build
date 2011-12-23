@@ -17,7 +17,7 @@ module AutoBuild
     end
 
     def code
-      "self.build_#{association_name}"
+      "self.#{association_name} ||= build_#{association_name}"
     end
   end
 end

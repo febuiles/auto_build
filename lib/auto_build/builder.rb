@@ -2,7 +2,6 @@ module AutoBuild
   module Builder
     extend ActiveSupport::Concern
 
-
     module ClassMethods
       # Public: This method allows you to auto initialize associations
       # in your models. After calling it you don't need to call

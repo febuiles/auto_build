@@ -10,7 +10,7 @@ module AutoBuild
     attr_reader :options
     # Public: Returns the type (macro) of association (e.g. has_one,
     # :has_many).
-    attr_reader:type
+    attr_reader :type
 
     # Public: Creates a new Association.
     #

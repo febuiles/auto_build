@@ -91,7 +91,8 @@ Notes
   `after_initialize` hook this might overwrite the validations done in `reject_if`.
 * The option `:append => true` is equivalent to `:count => 1`.
 * None of the operations will overwrite existing objects.
-* Autobuilding associations means that if there's a value in the column, the object **will be loaded
+
+Autobuilding associations means that if there's a value in the column, the object **will be loaded
 every time you load the parent**. This is problematic if you're trying to optimize your code. To get
 a better picture of this:
 

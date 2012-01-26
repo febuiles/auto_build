@@ -91,7 +91,18 @@ Notes
   `after_initialize` hook this might overwrite the validations done in `reject_if`.
 * The option `:append => true` is equivalent to `:count => 1`.
 * None of the operations will overwrite existing objects.
+* Autobuilding associations means that if there's a value in the column, the object **will be loaded
+every time you load the parent**. This is problematic if you're trying to optimize your code. To get
+a better picture of this:
 
+    class User
+      has_one :address
+      auto_build :address
+    end
+
+If you do `User.select(:id)` the resulting query will be `SELECT id FROM users;` **plus** `SELECT *
+from addresses WHERE user_id = 42";`. This happens because we're calling calling `user#address`
+every time we initialize a `User` object.
 
 How it works
 ----

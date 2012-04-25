@@ -51,4 +51,9 @@ class AutoBuildTest < ActiveSupport::TestCase
   test "has_one doesn't save the association, only builds it" do
     assert !@user.address.persisted?
   end
+
+	test "belongs_to association" do
+		@order = Order.new		
+		assert @order.user
+	end
 end

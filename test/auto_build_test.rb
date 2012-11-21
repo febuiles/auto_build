@@ -52,8 +52,8 @@ class AutoBuildTest < ActiveSupport::TestCase
     assert !@user.address.persisted?
   end
 
-	test "belongs_to association" do
-		@order = Order.new		
-		assert @order.user
-	end
+  test "belongs_to association" do
+    @order = Order.new
+    assert @order.user
+  end
 end

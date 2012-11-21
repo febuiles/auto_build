@@ -40,6 +40,16 @@ You can also do:
 
 To initialize several fields. One `after_initialize` callback will be created per association.
 
+### belongs_to associations
+
+Works the same as the `has_one` association:
+
+     class User
+       belongs_to :directory
+
+       auto_build :directory
+     end
+
 ### has_many associations
 
 You can automatically initialize a `has_many` association in the same way you initialized a `has_one`

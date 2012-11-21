@@ -57,7 +57,7 @@ module AutoBuild
     #
     # It will choose the correct hook based on the value of `type`.
     def add_hook
-      if type == :has_one
+      if [:has_one, :belongs_to].include?(type)
         HasOneHook.new(model, association_name).attach
       else
         HasManyHook.new(model, association_name, options).attach

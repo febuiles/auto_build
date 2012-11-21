@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
 
   has_many :projects
   has_many :nicknames
+	has_many :orders
 
   auto_build :address, :picture
   auto_build :projects
